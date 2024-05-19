@@ -15,4 +15,8 @@ tmux:
 	git clone https://github.com/tmux-plugins/tpm ${HOME}/.config/tmux/plugins/tpm
 	ln -vsf ${PWD}/.config/tmux/tmux.conf ${HOME}/.config/tmux/tmux.conf
 
-install: lazygit tmux
+zshrc:
+	rm -rf ${HOME}/.zshrc
+	ln -vsf ${PWD}/.zshrc ${HOME}/.zshrc
+
+install: lazygit tmux zshrc

@@ -13,6 +13,12 @@ zsh:
 	ln -vsf ${PWD}/.zsh_env ${HOME}/.zsh_env
 	ln -vsf ${PWD}/.p10k.zsh ${HOME}/.p10k.zsh
 
+lazyvim:
+	rm -rf ${HOME}/.local/share/nvim
+	rm -rf ${HOME}/.local/state/nvim
+	rm -rf ${HOME}/.cache/nvim
+	rm -rf ${HOME}/.config/nvim
+	ln -vsf ${PWD}/.config/nvim ${HOME}/.config
 
-install: tmux bins zsh
+install: tmux bins zsh lazyvim
 

@@ -15,11 +15,6 @@ zsh:
 	ln -vsf ${PWD}/.zsh_env ${HOME}/.zsh_env
 	ln -vsf ${PWD}/.p10k.zsh ${HOME}/.p10k.zsh
 
-pro: | ${HOME}/.local/bin
-	ln -vsf ${PWD}/.pro/.zsh_pro ${HOME}/.zsh_pro
-	ln -vsf ${PWD}/.pro/.local/bin/* ${HOME}/.local/bin
 
 install: tmux bins zsh
-
-install-pro: install pro
 

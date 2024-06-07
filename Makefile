@@ -20,5 +20,8 @@ lazyvim:
 	rm -rf ${HOME}/.config/nvim
 	ln -vsf ${PWD}/.config/nvim ${HOME}/.config
 
-install: tmux bins zsh lazyvim
+gitconfig:
+	ln -vsf ${PWD}/.gitconfig ${HOME}/.gitconfig
+
+install: tmux bins zsh lazyvim gitconfig
 

@@ -1,0 +1,7 @@
+[user]
+  email = sco
+  name = sco
+[core]
+  autocrlf = false
+[push]
+  default = upstream

@@ -1,7 +1,7 @@
 # This is required when using powerlevel10k theme
-if [ -z "$TMUX" ]; then
-  exec tmux new-session -A -s workspace
-fi
+# if [ -z "$TMUX" ]; then
+#   exec tmux new-session -A -s workspace
+# fi
 
 
 export ZSH="$HOME/.oh-my-zsh"

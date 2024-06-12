@@ -16,7 +16,6 @@ source $ZSH/oh-my-zsh.sh
 
 zsh_files=".zsh_aliases .zsh_env"
 for x in $(echo $zsh_files); do
-  echo $x
   if [[ -f ${HOME}/$x ]]; then
     source $HOME/$x
   fi

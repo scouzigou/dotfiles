@@ -25,9 +25,6 @@ deploy_configs:
 	stow -t ${HOME} rofi
 	stow -t ${HOME} tmux
 	stow -t ${HOME} zsh
-	sudo mkdir -p /etc/lightdm
-	sudo cp ${PWD}/lightdm/etc/lightdm/lightdm.conf /etc/lightdm/
-	sudo cp ${PWD}/lightdm/etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/
 
 install_packages:
 	$(PACMAN) $(PACKAGES)

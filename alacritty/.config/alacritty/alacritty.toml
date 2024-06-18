@@ -1,3 +1,4 @@
+# import = ["~/.config/alacritty/solarized_osaka.toml"]
 import = ["~/.config/alacritty/catppuccin-mocha.toml"]
 
 [env]

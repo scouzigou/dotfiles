@@ -2,7 +2,7 @@ export ZSH="$HOME/.oh-my-zsh"
 #export ZSH_TMUX_AUTOSTART="true"
 #export ZSH_TMUX_AUTOQUIT="false"
 
-ZSH_THEME="bira"
+ZSH_THEME="robbyrussell"
 
 plugins=(git z colored-man-pages colorize tmux)
 

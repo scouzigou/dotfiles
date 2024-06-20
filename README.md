@@ -25,8 +25,18 @@ make install_packages
 
 ### Tips
 
-#### Set US international layout (with _dead keys_ for accents)
+#### Configure keymap
 
 ~~~bash
-localectl set-x11-keymap us default Intl
+# VC Keymap = us
+sudo localectl --no-convert set-keymap us
+# X11 two variant us and us international (toggle with ctrl+alt)
+sudo localectl --no-convert set-x11-keymap us,us pc105,pc105 "",intl grp:ctrl_alt_toggle
+# check
+localectl
 ~~~
+
+Interesting resources:
+
+- <https://wiki.archlinux.org/title/Xorg/Keyboard_configuration>
+- `man xkeyboard-config`

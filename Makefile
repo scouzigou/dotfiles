@@ -9,9 +9,9 @@ PACMAN := sudo pacman --noconfirm -S
 NPM := sudo npm install -g
 
 help:
-	@echo "deploy config with the command: 'make deploy_configs'"
-	@echo "install packages with the command: 'make install_packages'"
-	@echo "configure keyboard with US and US intl layouts: 'make configure_keyboard_us'"
+	@echo "deploy config with: 'make deploy_configs'"
+	@echo "install packages with: 'make install_packages'"
+	@echo "configure keyboard (pc105, US, US intl) with: 'make configure_keyboard_us'"
 
 deploy_configs:
 	@$(PACMAN) stow

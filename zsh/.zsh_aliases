@@ -2,4 +2,5 @@ alias vi="nvim"
 alias ls="exa --icons --git"
 alias lgit="lazygit"
 alias lg="lazygit"
+alias y="yazi"
 

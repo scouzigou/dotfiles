@@ -1,6 +1,6 @@
 
 PACKAGES := base ntfs-3g xorg-xrandr lightdm lightdm-gtk-greeter i3-wm i3lock xss-lock picom feh rofi polybar firefox keepass
-PACKAGES += alacritty wezterm yazi ttf-meslo-nerd zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting tmux git fzf bat
+PACKAGES += wezterm yazi ttf-meslo-nerd zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting tmux git fzf bat
 PACKAGES += lazygit xclip unzip wget neovim ripgrep fd nodejs npm python-pip python-pynvim stow exa man-db openssh
 
 NPM_PACKAGES := tree-sitter-cli neovim
@@ -16,7 +16,7 @@ help:
 
 deploy_configs:
 	@$(PACMAN) stow
-	stow -t ${HOME} alacritty
+	stow -t ${HOME} wezterm
 	stow -t ${HOME} backgrounds
 	stow -t ${HOME} bin
 	stow -t ${HOME} gitconfig

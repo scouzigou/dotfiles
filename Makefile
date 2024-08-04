@@ -19,6 +19,7 @@ install_packages:
 	@$(NPM) $(NPM_PACKAGES)
 	@[[ -d ${HOME}/.config/tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ${HOME}/.config/tmux/plugins/tpm
 	@[[ -d ${HOME}/.oh-my-zsh ]] || (curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh && mv ${HOME}/.zshrc ${HOME}/.zshrc.oh-my-zsh)
+	@sudo systemctl enable lightdm
 
 install_rust:
 	@[[ -f ${HOME}/.cargo/bin/rustup ]] || curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh

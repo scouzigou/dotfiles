@@ -1,6 +1,5 @@
 configuration{
-    modi: "run,drun,window";
-    icon-theme: "Oranchelo";
+    modi: "drun,window,run";
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
@@ -10,7 +9,6 @@ configuration{
     display-drun: "   Apps ";
     display-run: "   Run ";
     display-window: " 﩯  Window";
-    display-Network: " 󰤨  Network";
     sidebar-mode: true;
 }
 

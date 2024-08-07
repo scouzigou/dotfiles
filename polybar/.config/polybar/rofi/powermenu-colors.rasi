@@ -1,0 +1,10 @@
+/* colors */
+
+* {
+  bg:             #1a1b26;
+  bga:            #283457;
+  fg:             #c0caf5;
+  prompt-icon-fg: #f7768e;
+  el-fg:          #545c7e;
+  el-selected-fg: #ff9e64;
+}

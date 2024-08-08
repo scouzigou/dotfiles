@@ -45,6 +45,7 @@ deploy_configs:
 	stow -t ${HOME} polybar
 	stow -t ${HOME} rofi
 	stow -t ${HOME} tmux
+	stow -t ${HOME} yazi
 	stow -t ${HOME} zsh
 
 configure_keyboard_us:

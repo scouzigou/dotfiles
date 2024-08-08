@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+magick ~/.config/backgrounds/wallpaper-blur.jpg RGB:- | i3lock -e -f -k --nofork --raw 2560x1440:rgb --image /dev/stdin

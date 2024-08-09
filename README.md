@@ -19,8 +19,7 @@ stow --target=$HOME neovim
 Look at `Makefile`:
 
 ~~~bash
-make deploy_configs # this will install stow
-make install_packages
+make # this will print the different possibilities
 ~~~
 
 ### Tips
@@ -31,7 +30,7 @@ make install_packages
 # VC Keymap = us
 sudo localectl --no-convert set-keymap us
 # X11 two variant us and us international (toggle with ctrl+alt)
-sudo localectl --no-convert set-x11-keymap us,us pc105,pc105 "",intl grp:ctrl_alt_toggle
+sudo localectl --no-convert set-x11-keymap us,us,fr pc105,pc105,pc105 "",intl,"" grp:ctrl_shift_toggle
 # check
 localectl
 ~~~

@@ -3,8 +3,9 @@ configuration{
     show-icons: true;
     terminal: "alacritty";
     drun-display-format: "{icon} {name}";
-    // filter the entries (see: /usr/share/applications) bases on categories (see: man rofi)
-    drun-categories: "TerminalEmulator,WebBrowser,TextEditor,Office,Player";
+    // filter the entries (see: /usr/share/applications) using thier categories (see: man rofi)
+    // for keepass, I manually add the category Keepass to keepass.desktop
+    drun-categories: "TerminalEmulator,WebBrowser,TextEditor,Office,Player,Keepass";
     location: 0;
     disable-history: false;
     hide-scrollbar: true;

@@ -4,7 +4,7 @@ PACKAGES += wezterm yazi ttf-meslo-nerd zsh zsh-completions zsh-autosuggestions 
 PACKAGES += lazygit xclip unzip wget neovim ripgrep lua51 luarocks fd nodejs npm python-pip python-pynvim stow exa man-db openssh
 PACKAGES += libreoffice-fresh libreoffice-fresh-fr vlc
 
-PACKAGES_PRINTER := usbutils cups cups-pdf hplip
+PACKAGES_PRINTER := usbutils cups cups-pdf hplip sane skanpage
 
 NPM_PACKAGES := tree-sitter-cli neovim
 

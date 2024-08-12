@@ -5,14 +5,18 @@
 Using `stow`:
 
 ~~~bash
-#stow --target=$HOME <package>
+# see man stow
+#stow --target=$HOME --dotfiles <package>
 # Examples
-stow --target=$HOME zsh
-stow --target=$HOME gitconfig
-stow --target=$HOME tmux
-stow --target=$HOME neovim
+stow --target=$HOME --dotfiles zsh
+stow --target=$HOME --dotfiles gitconfig
+stow --target=$HOME --dotfiles tmux
+stow --target=$HOME --dotfiles neovim
 ...
 ~~~
+
+> [!IMPORTANT]
+> the folder `./lightdm` contains files that are used by `make install` (see below); therefore, **do not use execute `stow lightdm`**.
 
 ### Automatic deployment with `make`
 
@@ -43,38 +47,39 @@ Interesting resources:
 
 #### Configure Dual boot with Windows
 
-__Pre-requisite__: deploy UEFI version of Grub (when using USB key, boot from UEFI:my usb key)
+**Pre-requisite**: deploy UEFI version of Grub (when using USB key, boot from UEFI:my usb key)
 
 1. locate the disk/partition containing Windows UEFI boot using `sudo fdisk -l`. Then, get the `uuid` of the partition using `sudo blkid` (field: `UUID`); example: `ABCD-1234`.
 
-2. add a file in `/etc/grub.d/` with the following content:
+2. create a file in `/etc/grub.d/09_windows` with the following content:
+
+  ~~~bash
+#!/bin/sh
+  exec tail -n +3 $0
+
+  menuentry "Windows" --class windows --class os {
+    insmod part_gpt
+    search --no-floppy --set=root --fs-uuid abcd-1234
+    chainloader /EFI/Microsoft/Boot/bootmgfw.efi
+  }
+  ~~~
+
+3. make the file executable
 
 ~~~bash
-# exammple: /etc/grub.d/09_windows (entry will appear before linux entries defined in /etc/grub.d/10_linux)
-
-#!/bin/sh
-exec tail -n +3 $0
-# This file provides an easy way to add custom menu entries.  Simply type the
-# menu entries you want to add after this comment.  Be careful not to change
-# the 'exec tail' line above.
-
-menuentry "Windows" --class windows --class os {
-  insmod part_gpt
-  search --no-floppy --set=root --fs-uuid abcd-1234
-  chainloader /EFI/Microsoft/Boot/bootmgfw.efi
-}
+sudo chmod +x /etc/grub.d/09_windows
 ~~~
 
-3. make a copy of the current configuration
+4. make a copy of the current configuration
 
 ~~~bash
 sudo cp /boot/grub/grub.cfg /boot/grub/grub.cfg.backup
 ~~~
 
-4. regenerate the configuration
+5. regenerate the configuration
 
 ~~~bash
 sudo grub-mkconfig > /boot/grub/grub.cfg
 ~~~
 
-__Note__: it is also possible to update the behavior of `Grub` by changing `/etc/default/grub`
+**Note**: it is also possible to update the behavior of `Grub` by changing `/etc/default/grub`

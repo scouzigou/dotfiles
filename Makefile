@@ -25,28 +25,28 @@ help:
 
 install: directories
 	@echo "Installing..."
-	# Arch packages
+	@# Arch packages
 	@$(PACMAN) $(PACMAN_PACKAGES)
-	# NodeJS packages (required by neovim)
+	@# NodeJS packages (required by neovim)
 	@$(NPM) $(NPM_NEOVIM_PACKAGES)
-	# Tmux Plugin Manager
+	@# Tmux Plugin Manager
 	@[[ -d ${HOME}/.config/tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ${HOME}/.config/tmux/plugins/tpm
-	# Oh-My-Zsh
+	@# Oh-My-Zsh
 	@[[ -d ${HOME}/.oh-my-zsh ]] || (curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh && mv ${HOME}/.zshrc ${HOME}/.zshrc.oh-my-zsh)
-	# Rust
+	@# Rust
 	@[[ -f ${HOME}/.cargo/bin/rustup ]] || curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 	@rustup component add rust-analyzer
 	@echo "Configuring..."
-	# Update /usr/share/applications/keepass.desktop to make it appears into rofi menu (see rofi/config.rasi)
+	@# Update /usr/share/applications/keepass.desktop to make it appears into rofi menu (see rofi/config.rasi)
 	@sudo sed -i 's/^Categories=Utility;$$/Categories=Utility;Keepass;/' /usr/share/applications/keepass.desktop
-	# Configure lightdm
+	@# Configure lightdm
 	@[[ -f /etc/lightdm/lightdm.conf.original ]] || sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
 	@[[ -f /etc/lightdm/lightdm-gtk-greeter.conf.original ]] || sudo cp /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.original
 	@[[ -d /usr/share/backgrounds/lightdm ]] || (sudo mkdir -p /usr/share/backgrounds/lightdm && sudo chown lightdm:root /usr/share/backgrounds/lightdm/)
 	@[[ -f /usr/share/backgrounds/lightdm/wallpaper-blur.jpg ]] || (sudo cp ./backgrounds/dot-config/backgrounds/wallpaper-blur.jpg /usr/share/backgrounds/lightdm/ && sudo chown lightdm:root /usr/share/backgrounds/lightdm/wallpaper-blur.jpg)
 	@sudo cp ./lightdm/lightdm.conf /etc/lightdm/lightdm.conf
 	@sudo cp ./lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
-	# Stow various configurations
+	@# Stow various configurations
 	@stow -t ${HOME} --dotfiles backgrounds
 	@stow -t ${HOME} --dotfiles bin
 	@stow -t ${HOME} --dotfiles gitconfig
@@ -59,13 +59,13 @@ install: directories
 	@stow -t ${HOME} --dotfiles wezterm
 	@stow -t ${HOME} --dotfiles yazi
 	@stow -t ${HOME} --dotfiles zsh
-	# Configure keyboard layouts (us, us intl, fr)
+	@# Configure keyboard layouts (us, us intl, fr)
 	@sudo localectl --no-convert set-keymap us
 	@sudo localectl --no-convert set-x11-keymap us,us,fr pc105,pc105,pc105 "",intl,"" grp:ctrl_shift_toggle
 	@echo "Enabling services..."
 	@sudo systemctl enable lightdm
 	@sudo systemctl enable cups
-	# Configure printer
+	@# Configure printer
 	@sudo hp-setup -b usb -i -a -x
 	
 directories:

@@ -3,7 +3,7 @@
 dir="~/.config/polybar/rofi"
 uptime=$(uptime -p | sed -e 's/up //g')
 
-rofi_command="rofi -no-config -theme $dir/powermenu"
+rofi_command="rofi -no-config -kb-row-up k -kb-row-down j -theme $dir/powermenu"
 
 lock="󰌾  Lock"
 shutdown="󰐥  Shutdown"

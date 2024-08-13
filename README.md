@@ -16,7 +16,7 @@ stow --target=$HOME --dotfiles neovim
 ~~~
 
 > [!IMPORTANT]
-> the folder `./lightdm` contains files that are used by `make install` (see below); therefore, **do not use execute `stow lightdm`**.
+> **Do not use `stow` on `./lightdm`.** It contains files that are used by `make install` only (see below)
 
 ### Automatic deployment with `make`
 

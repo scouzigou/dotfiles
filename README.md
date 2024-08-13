@@ -1,12 +1,13 @@
 # dotfiles
 
-### Manually deploy configuration
+This repository contains my **personal** *stuff* to setup my configuration => do not use as it is...
 
-Using `stow`:
+## Stow configuration files
+
+With [`stow`](https://archlinux.org/packages/extra/any/stow/):
 
 ~~~bash
-# see man stow
-#stow --target=$HOME --dotfiles <package>
+# See man stow (--target is not really necessary when .dotfiles folder is in HOME folder)
 # Examples
 stow --target=$HOME --dotfiles zsh
 stow --target=$HOME --dotfiles gitconfig
@@ -18,17 +19,17 @@ stow --target=$HOME --dotfiles neovim
 > [!IMPORTANT]
 > **Do not use `stow` on `./lightdm`.** It contains files that are used by `make install` only (see below)
 
-### Automatic deployment with `make`
+## Install with `make install`
 
-Look at `Makefile`:
+Look at the `Makefile`:
 
 ~~~bash
 make # this will print the different possibilities
 ~~~
 
-### Tips
+## Personal notes
 
-#### Configure keymap
+### Configure keymap
 
 ~~~bash
 # VC Keymap = us
@@ -45,41 +46,57 @@ Interesting resources:
 - `man xkeyboard-config`
 - `base.lst` file located in `/usr/share/X11/xkb/rules/`
 
-#### Configure Dual boot with Windows
+### Configure Dual boot with Windows
 
 **Pre-requisite**: deploy UEFI version of Grub (when using USB key, boot from UEFI:my usb key)
 
-1. locate the disk/partition containing Windows UEFI boot using `sudo fdisk -l`. Then, get the `uuid` of the partition using `sudo blkid` (field: `UUID`); example: `ABCD-1234`.
-
-2. create a file in `/etc/grub.d/09_windows` with the following content:
+- locate the disk/partition containing the Windows UEFI boot:
 
   ~~~bash
-#!/bin/sh
+  sudo fdisk -l
+  ~~~
+
+- find the `uuid` of disk/partition found in the previous step:
+
+  ~~~bash
+  # look at the field UUID
+  sudo blkid
+  ~~~
+
+- create the file `/etc/grub.d/09_windows`:
+
+  ~~~bash
+
+  #!/bin/sh
+
   exec tail -n +3 $0
 
   menuentry "Windows" --class windows --class os {
     insmod part_gpt
-    search --no-floppy --set=root --fs-uuid abcd-1234
+    search --no-floppy --set=root --fs-uuid <UUID>
     chainloader /EFI/Microsoft/Boot/bootmgfw.efi
   }
   ~~~
 
-3. make the file executable
+> [!IMPORTANT]
+> do not forget to replace `<UUID>` with the value found in the previous step
 
-~~~bash
-sudo chmod +x /etc/grub.d/09_windows
-~~~
+- make the file executable:
 
-4. make a copy of the current configuration
+  ~~~bash
+  sudo chmod +x /etc/grub.d/09_windows
+  ~~~
 
-~~~bash
-sudo cp /boot/grub/grub.cfg /boot/grub/grub.cfg.backup
-~~~
+- make a copy of the current configuration of Grub:
 
-5. regenerate the configuration
+  ~~~bash
+  sudo cp /boot/grub/grub.cfg /boot/grub/grub.cfg.original
+  ~~~
 
-~~~bash
-sudo grub-mkconfig > /boot/grub/grub.cfg
-~~~
+- regenerate the configuration of Grub:
+
+  ~~~bash
+  sudo sh -c 'grub-mkconfig > /boot/grub/grub.cfg'
+  ~~~
 
 **Note**: it is also possible to update the behavior of `Grub` by changing `/etc/default/grub`

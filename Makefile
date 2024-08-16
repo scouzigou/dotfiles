@@ -14,7 +14,7 @@ NPM_NEOVIM_PACKAGES := tree-sitter-cli neovim
 
 
 MKINSTALLDIRS = mkdir -p
-PACMAN := sudo pacman --noconfirm -S
+PACMAN := sudo pacman -Sy --noconfirm --needed 
 NPM := sudo npm install -g
 
 .PHONY: install

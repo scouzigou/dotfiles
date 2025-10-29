@@ -22,7 +22,7 @@ $reboot)
   systemctl reboot
   ;;
 $lock)
-  i3lock
+  loginctl lock-session
   ;;
 $suspend)
   systemctl suspend

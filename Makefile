@@ -15,7 +15,6 @@ help:
 	@echo "install rust with: 'make install_rust'"
 
 deploy_configs:
-	@$(PACMAN) stow
 	stow -t ${HOME} wezterm
 	stow -t ${HOME} backgrounds
 	stow -t ${HOME} bin

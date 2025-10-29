@@ -69,11 +69,14 @@ bindsym $mod+F4 kill
 bindsym $mod+p exec polybar-msg cmd toggle
 
 # start firefox
-bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+b exec firefox
 
-# start dmenu (a program launcher)
-bindsym $mod+space exec --no-startup-id rofi -show drun
-bindsym $mod+shift+space exec --no-startup-id ~/.config/polybar/scripts/powermenu.sh
+# start dmenu
+bindsym $mod+space exec rofi -show drun
+
+# start powermenu
+bindsym $mod+shift+space exec ~/.config/polybar/scripts/powermenu.sh
+
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a

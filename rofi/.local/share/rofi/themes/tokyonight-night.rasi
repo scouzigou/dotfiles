@@ -1,15 +1,20 @@
 * {
-    bg-col:  #1e1e2e;
-    bg-col-light: #1e1e2e;
-    border-col: #1e1e2e;
-    selected-col: #1e1e2e;
-    blue: #89b4fa;
-    fg-col: #cdd6f4;
-    fg-col2: #f38ba8;
-    grey: #6c7086;
+    bg-col: #1a1b26;
+    bg-col-light: #292e42;
 
-    width: 40%;
-    height: 35%;
+    prompt-bg-col: #7aa2f7;
+    entry-bg-col: @bg-col-light;
+    entry-fg-col: #545c7e;
+
+    element-fg-col: #545c7e;
+    element-selected-fg-col: #ff9e64;
+    element-selected-bg-col: #283457;
+
+    button-fg-col: #545c7e;
+    button-select-fg: #c0caf5;
+
+    width: 30%;
+    height: 30%;
 
     font: "JMesloLGS Nerd Font 11";
 }
@@ -20,8 +25,8 @@ element-text, element-icon , mode-switcher {
 }
 
 window {
-    border: 3px;
-    border-color: @border-col;
+    border: 2px;
+    border-color: @bg-col-light;
     background-color: @bg-col;
 }
 
@@ -37,7 +42,7 @@ inputbar {
 }
 
 prompt {
-    background-color: @blue;
+    background-color: @prompt-bg-col;
     padding: 6px;
     text-color: @bg-col;
     border-radius: 3px;
@@ -52,8 +57,8 @@ textbox-prompt-colon {
 entry {
     padding: 6px;
     margin: 20px 0px 0px 10px;
-    text-color: @fg-col;
-    background-color: @bg-col;
+    text-color: @entry-fg-col;
+    background-color: @entry-bg-col;
 }
 
 listview {
@@ -68,7 +73,7 @@ listview {
 element {
     padding: 5px;
     background-color: @bg-col;
-    text-color: @fg-col  ;
+    text-color: @element-fg-col;
 }
 
 element-icon {
@@ -76,8 +81,8 @@ element-icon {
 }
 
 element selected {
-    background-color:  @selected-col ;
-    text-color: @fg-col2  ;
+    background-color: @element-selected-bg-col;
+    text-color: @element-selected-fg-col;
 }
 
 mode-switcher {
@@ -87,14 +92,14 @@ mode-switcher {
 button {
     padding: 10px;
     background-color: @bg-col-light;
-    text-color: @grey;
-    vertical-align: 0.5; 
+    text-color: @button-fg-col;
+    vertical-align: 0.5;
     horizontal-align: 0.5;
 }
 
 button selected {
   background-color: @bg-col;
-  text-color: @blue;
+  text-color: @button-select-fg;
 }
 
 message {
@@ -107,6 +112,5 @@ message {
 textbox {
     padding: 6px;
     margin: 20px 0px 0px 20px;
-    text-color: @blue;
     background-color: @bg-col-light;
 }

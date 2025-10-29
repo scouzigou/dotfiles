@@ -1,2 +1,2 @@
-> [!NOTE]
-> `lightdm` must be configure with `makefile:configure_lightdm` (do not use `stow` for this one)
+> [!IMPORTANT]
+> `./lightdm` contains files used by `Makefile` to configure `lightdm` service; **do not use `stow` with it!**

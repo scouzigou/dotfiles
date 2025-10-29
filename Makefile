@@ -2,7 +2,7 @@
 PACKAGES := base ntfs-3g xorg-xrandr lightdm lightdm-gtk-greeter i3-wm i3lock xss-lock picom feh rofi polybar firefox keepass
 PACKAGES += wezterm yazi ttf-meslo-nerd zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting tmux git fzf bat
 PACKAGES += lazygit xclip unzip wget neovim ripgrep lua51 luarocks fd nodejs npm python-pip python-pynvim stow exa man-db openssh
-PACKAGES += libreoffice-fresh libreoffice-fresh-fr
+PACKAGES += libreoffice-fresh libreoffice-fresh-fr vlc
 
 NPM_PACKAGES := tree-sitter-cli neovim
 

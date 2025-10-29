@@ -16,7 +16,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
-plugins=(zsh-autosuggestions zsh-syntax-highlighting git zsh-z colored-man-pages colorize tmux kubectl)
+plugins=(zsh-autosuggestions zsh-syntax-highlighting git zsh-z colored-man-pages colorize tmux)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -28,8 +28,3 @@ done
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-PROMPT='$(kube_ps1)'$PROMPT
-
-# fnm
-export PATH="/home/jlvh8255/.local/share/fnm:$PATH"
-eval "`fnm env`"

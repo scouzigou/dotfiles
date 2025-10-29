@@ -1,1 +1,3 @@
 alias ls="exa --icons --git"
+alias lgit="lazygit"
+

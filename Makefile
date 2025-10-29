@@ -69,6 +69,8 @@ install: directories
 	@echo "Enabling services..."
 	@sudo systemctl enable lightdm
 	@sudo systemctl enable cups
+
+printer: install
 	@# Configure printer
 	@sudo hp-setup -b usb -i -a -x
 	

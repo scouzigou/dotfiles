@@ -14,7 +14,9 @@ plugins=(zsh-autosuggestions zsh-syntax-highlighting git zsh-z colored-man-pages
 
 source $ZSH/oh-my-zsh.sh
 
-for x in ".zsh_env" ".zsh_aliases" ".zsh_pro"; do
+zsh_files=".zsh_aliases .zsh_env"
+for x in $(echo $zsh_files); do
+  echo $x
   if [[ -f ${HOME}/$x ]]; then
     source $HOME/$x
   fi

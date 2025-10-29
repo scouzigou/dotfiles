@@ -3,12 +3,12 @@ LOCAL_DIR = $(HOME)/.local
 LOCAL_BIN_DIR = $(HOME)/.local/bin
 KEEPASS_DIR = $(HOME)/.keepass
 
-PACMAN_PACKAGES := base man-db openssh ntfs-3g usbutils cups cups-pdf hplip sane ttf-meslo-nerd
+PACMAN_PACKAGES := base base-devel man-db net-tools openssh ntfs-3g usbutils cups cups-pdf hplip sane ttf-meslo-nerd
 PACMAN_PACKAGES += xorg-xrandr lightdm lightdm-gtk-greeter i3-wm i3lock xss-lock picom feh rofi polybar xclip
 PACMAN_PACKAGES += firefox keepass wezterm libreoffice-fresh libreoffice-fresh-fr skanpage vlc
 PACMAN_PACKAGES += zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting
 PACMAN_PACKAGES += imagemagick yazi tmux git lazygit fzf bat unzip wget ripgrep fd stow exa
-PACMAN_PACKAGES += neovim lua51 luarocks fd nodejs npm python-pip python-pynvim
+PACMAN_PACKAGES += neovim lua51 luarocks fd go nodejs npm python-pip python-pynvim
 
 NPM_NEOVIM_PACKAGES := tree-sitter-cli neovim
 
@@ -27,6 +27,9 @@ install: directories
 	@echo "Installing..."
 	@# Arch packages
 	@$(PACMAN) $(PACMAN_PACKAGES)
+	@# yay
+	@[[ -d ${HOME}/yay ]] && sudo rm -rf ${HOME}/yay
+	@git clone https://aur.archlinux.org/yay.git ${HOME}/yay && cd ${HOME}/yay && makepkg -si && sudo rm -rf ${HOME}/yay
 	@# NodeJS packages (required by neovim)
 	@$(NPM) $(NPM_NEOVIM_PACKAGES)
 	@# Tmux Plugin Manager

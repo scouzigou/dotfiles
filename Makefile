@@ -16,7 +16,7 @@ help:
 	@echo "install printer with: 'make install_printer'"
 	@echo "install rust with: 'make install_rust'"
 	@echo "deploy config with: 'make deploy_configs'"
-	@echo "configure keyboard (pc105, US, US intl) with: 'make configure_keyboard_us'"
+	@echo "configure keyboard layouts (pc105, US, US intl, FR) with: 'make configure_keyboard_layouts'"
 
 install_packages:
 	@$(PACMAN) $(PACKAGES)
@@ -56,7 +56,7 @@ deploy_configs:
 	stow -t ${HOME} yazi
 	stow -t ${HOME} zsh
 
-configure_keyboard_us:
+configure_keyboard_layouts:
 	@sudo localectl --no-convert set-keymap us
-	@sudo localectl --no-convert set-x11-keymap us,us pc105,pc105 "",intl grp:ctrl_alt_toggle
+	@sudo localectl --no-convert set-x11-keymap us,us,fr pc105,pc105,pc105 "",intl,"" grp:ctrl_shift_toggle
 

@@ -65,6 +65,9 @@ bindsym $mod+Shift+d kill
 bindsym $mod+d kill
 bindsym $mod+F4 kill
 
+# start firefox
+bindsym $mod+b exec --no-startup-id firefox
+
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun
 bindsym $mod+shift+space exec --no-startup-id ~/.config/polybar/scripts/powermenu.sh

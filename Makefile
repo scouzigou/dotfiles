@@ -23,7 +23,6 @@ install_packages:
 	@$(NPM) $(NPM_PACKAGES)
 	@[[ -d ${HOME}/.config/tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ${HOME}/.config/tmux/plugins/tpm
 	@[[ -d ${HOME}/.oh-my-zsh ]] || (curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh && mv ${HOME}/.zshrc ${HOME}/.zshrc.oh-my-zsh)
-	@sudo systemctl enable lightdm
 
 install_printer:
 	@$(PACMAN) $(PACKAGES_PRINTER)
@@ -33,6 +32,15 @@ install_printer:
 install_rust:
 	@[[ -f ${HOME}/.cargo/bin/rustup ]] || curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
 	@rustup component add rust-analyzer
+
+configure_lightdm:
+	@[[ -f /etc/lightdm/lightdm.conf.original ]] || sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
+	@sudo cp ./lightdm/lightdm.conf /etc/lightdm/lightdm.conf
+	@[[ -f /etc/lightdm/lightdm-gtk-greeter.conf.original ]] || sudo cp /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.original
+	@sudo cp ./lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
+	@[[ -d /usr/share/backgrounds/lightdm ]] || (sudo mkdir -p /usr/share/backgrounds/lightdm && sudo chown lightdm:root /usr/share/backgrounds/lightdm/)
+	@[[ -f /usr/share/backgrounds/lightdm/wallpaper-blur.jpg ]] || (sudo cp ./backgrounds/.config/backgrounds/wallpaper-blur.jpg /usr/share/backgrounds/lightdm/ && sudo chown lightdm:root /usr/share/backgrounds/lightdm/wallpaper-blur.jpg)
+	@sudo systemctl enable lightdm
 
 deploy_configs:
 	stow -t ${HOME} wezterm

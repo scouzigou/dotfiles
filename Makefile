@@ -43,7 +43,7 @@ install: directories
 	@[[ -f /etc/lightdm/lightdm.conf.original ]] || sudo cp /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.original
 	@[[ -f /etc/lightdm/lightdm-gtk-greeter.conf.original ]] || sudo cp /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.original
 	@[[ -d /usr/share/backgrounds/lightdm ]] || (sudo mkdir -p /usr/share/backgrounds/lightdm && sudo chown lightdm:root /usr/share/backgrounds/lightdm/)
-	@[[ -f /usr/share/backgrounds/lightdm/wallpaper-blur.jpg ]] || (sudo cp ./backgrounds/.config/backgrounds/wallpaper-blur.jpg /usr/share/backgrounds/lightdm/ && sudo chown lightdm:root /usr/share/backgrounds/lightdm/wallpaper-blur.jpg)
+	@[[ -f /usr/share/backgrounds/lightdm/wallpaper-blur.jpg ]] || (sudo cp ./backgrounds/dot-config/backgrounds/wallpaper-blur.jpg /usr/share/backgrounds/lightdm/ && sudo chown lightdm:root /usr/share/backgrounds/lightdm/wallpaper-blur.jpg)
 	@sudo cp ./lightdm/lightdm.conf /etc/lightdm/lightdm.conf
 	@sudo cp ./lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf
 	# Stow various configurations

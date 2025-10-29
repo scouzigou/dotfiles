@@ -12,6 +12,7 @@ help:
 	@echo "deploy config with: 'make deploy_configs'"
 	@echo "install packages with: 'make install_packages'"
 	@echo "configure keyboard (pc105, US, US intl) with: 'make configure_keyboard_us'"
+	@echo "install rust with: 'make install_rust'"
 
 deploy_configs:
 	@$(PACMAN) stow
@@ -36,3 +37,6 @@ install_packages:
 	$(NPM) $(NPM_PACKAGES)
 	[[ -d ${HOME}/.config/tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ${HOME}/.config/tmux/plugins/tpm
 
+install_rust:
+	@[[ -f ${HOME}/.cargo/bin/rustup ]] || curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+	@rustup component add rust-analyzer

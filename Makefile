@@ -1,7 +1,7 @@
 
-PACKAGES := base lightdm lightdm-webkit2-greeter lightdm-webkit-theme-litarvan i3-wm picom feh rofi polybar
+PACKAGES := base lightdm lightdm-gtk-greeter i3-wm i3lock xss-lock picom feh rofi polybar firefox keepass
 PACKAGES += alacritty ttf-meslo-nerd zsh zsh-completions zsh-autosuggestions zsh-syntax-highlighting tmux git
-PACKAGES += lazygit xclip unzip wget neovim ripgrep fd nodejs npm python-pip python-pynvim stow
+PACKAGES += lazygit xclip unzip wget neovim ripgrep fd nodejs npm python-pip python-pynvim stow exa man-db
 
 NPM_PACKAGES := tree-sitter-cli neovim
 

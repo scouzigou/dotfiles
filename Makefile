@@ -11,6 +11,7 @@ NPM := sudo npm install -g
 help:
 	@echo "deploy config with the command: 'make deploy_configs'"
 	@echo "install packages with the command: 'make install_packages'"
+	@echo "configure keyboard with US and US intl layouts: 'make configure_keyboard_us'"
 
 deploy_configs:
 	@$(PACMAN) stow
@@ -25,6 +26,10 @@ deploy_configs:
 	stow -t ${HOME} rofi
 	stow -t ${HOME} tmux
 	stow -t ${HOME} zsh
+
+configure_keyboard_us:
+	@sudo localectl --no-convert set-keymap us
+	@sudo localectl --no-convert set-x11-keymap us,us pc105,pc105 "",intl grp:ctrl_alt_toggle
 
 install_packages:
 	$(PACMAN) $(PACKAGES)

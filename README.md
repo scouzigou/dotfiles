@@ -66,8 +66,16 @@ menuentry "Windows" --class windows --class os {
 }
 ~~~
 
-3. make a copy of the current configuration with `sudo cp /boot/grub/grub.cfg /boot/grub/grub.cfg.backup`.
+3. make a copy of the current configuration
 
-4. regenerate the configuration with `sudo grub-mkconfig > /boot/grub/grub.cfg`
+~~~bash
+sudo cp /boot/grub/grub.cfg /boot/grub/grub.cfg.backup
+~~~
+
+4. regenerate the configuration
+
+~~~bash
+sudo grub-mkconfig > /boot/grub/grub.cfg
+~~~
 
 __Note__: it is also possible to update the behavior of `Grub` by changing `/etc/default/grub`

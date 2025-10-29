@@ -2,6 +2,9 @@
 #export ZSH_TMUX_AUTOSTART="true" # useless because using theme powerlevel10k that require to manually start tmux session (see first lines of .zshrc)
 export ZSH_TMUX_AUTOQUIT="false"
 
+# z zsh plugin
+export ZSHZ_CASE="smart"
+
 # cargo (used when building & installing directly binary from RUST)
 export PATH="$HOME/.cargo/bin:$HOME/.local/bin:$PATH"
 

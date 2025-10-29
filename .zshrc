@@ -33,7 +33,3 @@ PROMPT='$(kube_ps1)'$PROMPT
 # fnm
 export PATH="/home/jlvh8255/.local/share/fnm:$PATH"
 eval "`fnm env`"
-
-# fnm
-export PATH="/home/jlvh8255/.local/share/fnm:$PATH"
-eval "`fnm env`"

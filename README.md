@@ -22,3 +22,11 @@ Look at `Makefile`:
 make deploy_configs # this will install stow
 make install_packages
 ~~~
+
+### Tips
+
+#### Set US international layout (with _dead keys_ for accents)
+
+~~~bash
+localectl set-x11-keymap us default Intl
+~~~

@@ -1,5 +1,3 @@
-LAZYGIT_VERSION := "0.42.0"
-
 tmux:
 	ln -vsf ${PWD}/.config/tmux/tmux.conf ${HOME}/.config/tmux/tmux.conf
 

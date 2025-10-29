@@ -4,7 +4,7 @@ export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="robbyrussell"
 
-plugins=(git z colored-man-pages colorize tmux)
+plugins=(git z fzf colored-man-pages colorize tmux)
 
 source $ZSH/oh-my-zsh.sh
 

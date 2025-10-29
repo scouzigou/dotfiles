@@ -1,17 +1,24 @@
 # dotfiles
 
-Install with:
+Install using stow
 
 ~~~bash
-make install
+#stow --target=$HOME <package>
+# Examples
+stow --target=$HOME zsh
+stow --target=$HOME gitconfig
+stow --target=$HOME tmux
+stow --target=$HOME neovim
+...
 ~~~
 
-## Tmux
+## MISC (TODO)
+### Tmux
 
 Install plugins using [`tpm`](https://github.com/tmux-plugins/tpm) with: `<C-b> I`.
 
 
-## zsh / oh-my-zsh
+### zsh / oh-my-zsh
 
 Plugins:
 

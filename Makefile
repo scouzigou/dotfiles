@@ -51,6 +51,7 @@ install: directories
 	@stow -t ${HOME} --dotfiles bin
 	@stow -t ${HOME} --dotfiles gitconfig
 	@stow -t ${HOME} --dotfiles i3
+	@stow -t ${HOME} --dotfiles markdownlint-cli2
 	@stow -t ${HOME} --dotfiles neovim
 	@stow -t ${HOME} --dotfiles picom
 	@stow -t ${HOME} --dotfiles polybar

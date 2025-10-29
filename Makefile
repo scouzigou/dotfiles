@@ -4,6 +4,8 @@ PACKAGES += wezterm yazi ttf-meslo-nerd zsh zsh-completions zsh-autosuggestions 
 PACKAGES += lazygit xclip unzip wget neovim ripgrep lua51 luarocks fd nodejs npm python-pip python-pynvim stow exa man-db openssh
 PACKAGES += libreoffice-fresh libreoffice-fresh-fr vlc
 
+PACKAGES_PRINTER := usbutils cups cups-pdf hplip
+
 NPM_PACKAGES := tree-sitter-cli neovim
 
 PACMAN := sudo pacman --noconfirm -S
@@ -11,6 +13,7 @@ NPM := sudo npm install -g
 
 help:
 	@echo "install packages with: 'make install_packages'"
+	@echo "install printer with: 'make install_printer'"
 	@echo "install rust with: 'make install_rust'"
 	@echo "deploy config with: 'make deploy_configs'"
 	@echo "configure keyboard (pc105, US, US intl) with: 'make configure_keyboard_us'"
@@ -21,6 +24,11 @@ install_packages:
 	@[[ -d ${HOME}/.config/tmux/plugins/tpm ]] || git clone https://github.com/tmux-plugins/tpm ${HOME}/.config/tmux/plugins/tpm
 	@[[ -d ${HOME}/.oh-my-zsh ]] || (curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh | sh && mv ${HOME}/.zshrc ${HOME}/.zshrc.oh-my-zsh)
 	@sudo systemctl enable lightdm
+
+install_printer:
+	@$(PACMAN) $(PACKAGES_PRINTER)
+	@sudo systemctl enable cups
+	@echo -e "####\nRun sudo hp-setup -i to finalize the installation\n####"
 
 install_rust:
 	@[[ -f ${HOME}/.cargo/bin/rustup ]] || curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh

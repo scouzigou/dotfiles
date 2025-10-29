@@ -62,6 +62,7 @@ bindsym $mod+Return exec wezterm
 
 # kill focused window
 bindsym $mod+Shift+d kill
+bindsym $mod+F4 kill
 
 # start dmenu (a program launcher)
 bindsym $mod+space exec --no-startup-id rofi -show drun

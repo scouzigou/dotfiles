@@ -27,7 +27,6 @@ configuration {
 }
 
 * {
-    width: 30%;
     font: "Hack Nerd Font 11";
     foreground: #f0f6fc;
     background-color: #0d1117;
@@ -42,6 +41,7 @@ configuration {
 }
 
 #window {
+    width: 30%;
     background-color: @background-color;
     border:           1;
     border-radius:    6;

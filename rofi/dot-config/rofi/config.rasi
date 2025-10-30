@@ -68,14 +68,14 @@ configuration {
     fixed-height: 0;
     border:       0px;
     border-color: @bordercolor;
-    spacing:      2px ;
+    spacing:      2px;
     scrollbar:    false;
-    padding:      2px 0px 0px ;
+    padding:      2px 0px 0px;
 }
 
 #element {
     border:  0;
-    padding: 3px ;
+    padding: 3px;
 }
 
 #element.normal.normal {
@@ -124,14 +124,14 @@ configuration {
 }
 
 #scrollbar {
-    width:        2px ;
+    width:        2px;
     border:       0;
-    handle-width: 8px ;
+    handle-width: 8px;
     padding:      0;
 }
 
 #sidebar {
-    border:       2px dash 0px 0px ;
+    border:       2px dash 0px 0px;
     border-color: @separatorcolor;
 }
 
@@ -143,7 +143,7 @@ configuration {
 #inputbar {
     spacing:    0;
     text-color: @foreground;
-    padding:    1px ;
+    padding:    1px;
 }
 
 #case-indicator {
@@ -168,7 +168,7 @@ configuration {
 #textbox-prompt-colon {
     expand:     false;
     str:        ">";
-    margin:     0px 0.3em 0em 0em ;
+    margin:     0px 0.3em 0em 0em;
     text-color: @foreground;
 }
 
